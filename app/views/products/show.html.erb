@@ -1,0 +1,11 @@
+<h1> Name </h1>
+<h1><%= @product.name %></h1><br>
+<h3> Price </h3>
+<%= number_to_currency(@product.price) %><br>
+<%= image_tag @product.image, width: "550" %><br>
+<h3> Details </h3>
+<%= @product.details %><br>
+<h3> Description </h3>
+<%= @product.description %><br>
+<h3> Category </h3>
+<%= @product.category %><br>
