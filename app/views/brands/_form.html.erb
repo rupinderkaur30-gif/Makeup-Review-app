@@ -1,0 +1,24 @@
+<%= form_for @brand do |f| %>
+    <%= render partial: "layouts/errors", locals: {record: @brand}  %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br>
+      <%= f.label :image %><br>
+      <%= f.text_field :image %><br>
+      <h2> Add Product </h2>
+      <%= f.fields_for :products, @brand.products.build do |p| %>
+        <%= p.label :name %><br>
+        <%= p.text_field :name %><br>
+        <%= p.label :price %><br>
+        <%= p.number_field :price %><br>
+        <%= p.label :details%><br>
+        <%= p.text_area :details %><br>
+        <%= p.label :description %><br>
+        <%= p.text_area :description, cols: 40, rows: 10 %><br>
+        <%= p.label :category %><br>
+        <%= p.text_field :category %><br>
+        <%= p.label :image%><br>
+        <%= p.text_field :image %><br>
+        <% end %>
+      <%= f.submit %>
+      
+      <% end %>

@@ -1,0 +1,9 @@
+<h1> Name </h1>
+<h1><%= @brand.name %></h1><br>
+<h1> Image </h1>
+<h1><%= @brand.image %></h1><br>
+
+<%= link_to "Brand products", brand_products_path(@brand) %>
+
+<%= button_to "Edit #{@brand.name}", edit_brand_path(@brand), method: :get %>
+<%= button_to "delete #{@brand.name}", @brand, method: :delete %>
