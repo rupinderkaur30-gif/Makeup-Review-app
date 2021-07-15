@@ -1,6 +1,8 @@
 <h1> Welcome </h1>
+<div class="cards">
 <% @products.each do |product| %>
     <%= image_tag product.image, width: "350" %><br>
     <%= link_to "Product Name: #{product.name}", product_path(product.id) %><br>
-    <%= "Price: #{number_to_currency(product.price)}" %>
+    <%= "Price: #{number_to_currency(product.price)}" %><br><br>
+    </div>
 <% end %>

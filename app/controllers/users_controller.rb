@@ -9,6 +9,9 @@ class UsersController < ApplicationController
     redirect_to products_path
    end
 
+   def show 
+      @user = User.find(params[:id])
+   end
    private
     
    def user_params

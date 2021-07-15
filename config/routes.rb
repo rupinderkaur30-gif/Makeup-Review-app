@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :brands
   resources :products
   resources :reviews
+  get "/login", to: "sessions#login", as: "login"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#logout", as: "logout"
 end
