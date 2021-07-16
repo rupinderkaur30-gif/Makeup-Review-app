@@ -5,7 +5,7 @@
       <%= f.label :image %><br>
       <%= f.text_field :image %><br>
       <h2> Add Product </h2>
-      <%= f.fields_for :products, @brand.products.build do |p| %>
+      <%= f.fields_for :products do |p| %>
         <%= p.label :name %><br>
         <%= p.text_field :name %><br>
         <%= p.label :price %><br>

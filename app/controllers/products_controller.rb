@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
     def index
         if params[:brand_id]
           brand = Brand.find(params[:brand_id])
-          @products = brand.products
+          @products = brand.products.order_by_price
         else
-         @products = Product.all
+         @products = Product.order_by_price
         end
     end
 
@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
     end
 
     def show 
+        @review = Review.new(product: @product)
       
     end
 

@@ -1,0 +1,2 @@
+class MakeupApi < ApplicationRecord
+end

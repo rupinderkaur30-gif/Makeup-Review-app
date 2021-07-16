@@ -1,13 +1,11 @@
 class BrandsController < ApplicationController
     before_action :set_brand, only: [:show, :edit, :update, :destroy]
     def index
-        @brands = Brand.all
+        @brands = Brand.order_by_name
     end
 
     def new
         @brand = Brand.new
-        @brand.products.build
-        @brand.products.build
         @brand.products.build
     end
 
