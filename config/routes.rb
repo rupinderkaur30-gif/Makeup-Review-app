@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#login", as: "login"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#logout", as: "logout"
+  get "/auth/google_oauth2/callback", to: "sessions#google_omniauth"
+  #match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post] 
 end
