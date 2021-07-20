@@ -1,10 +1,17 @@
 
 <h1> Welcome </h1>
+<%= form_tag products_path, method: :get do %>
+    <%= label_tag :search, "Search Products" %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "search" %>
+    <% end %>
+
 <div class="cards">
 <% @products.each do |product| %>
     <%= image_tag product.image, width: "350" %><br>
     <%= link_to "Product Name: #{product.name}", product_path(product.id) %><br>
     <%= "Price: #{number_to_currency(product.price)}" %><br><br>
+ </div>
 
-    </div>
 <% end %>
+

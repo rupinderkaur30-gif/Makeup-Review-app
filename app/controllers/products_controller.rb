@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
         else
          @products = Product.order_by_price
         end
+        if params[:search]
+            @products = @products.search_by_name(params[:search])
+        end
     end
 
     def new
