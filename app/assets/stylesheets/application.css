@@ -26,6 +26,12 @@
     text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
     text-align: center;
   }
+
+  h3 {
+    color:  #ff69b4;
+    text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
+    text-align: center;
+  }
   
   .card h1 {
     font-size: 1.25em;
@@ -69,7 +75,20 @@
     width: 100%;
     object-fit: cover;
   }
-  
+
+  button {
+    padding: 10px;
+       background-color:  #ff69b4;
+       text-align: end;
+     }  
+
+     button input {
+        background-color: #ff69b4;
+        border: none;
+        color: blue;
+        text-decoration: underline;
+      }
+
   
   textarea {
     width: 80%;

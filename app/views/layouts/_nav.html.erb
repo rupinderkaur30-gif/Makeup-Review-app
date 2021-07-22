@@ -1,6 +1,6 @@
 <nav>
 <% if logged_in? %>
-  <p>Welcome <%= current_user.name %></p>
+  <h1><p>Welcome <%= current_user.name %></p></h1>
   <%= link_to "My profile", current_user %>|
   <%= link_to "Logout", logout_path, method: "delete" %>|
   <%= link_to "See all Products", products_path %> |

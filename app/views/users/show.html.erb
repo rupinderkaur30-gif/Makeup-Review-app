@@ -3,5 +3,5 @@
 
 <h1> Products you reviewed </h1>
 <% @user.products.each do |product| %>
-    <%= product.name %>
+    <%= link_to product.name , product_path(product) %>
     <% end %>
