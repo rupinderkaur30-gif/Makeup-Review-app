@@ -1,7 +1,8 @@
-<h1> Name </h1>
-<h1><%= @brand.name %></h1><br>
-<h1> Image </h1>
-<h1><%= @brand.image %></h1><br>
+<h1> Name: <%= @brand.name %></h1><br>
+<% if @brand.image %>
+<h1> Image: </h1>
+<%= image_tag @brand.image, width: "550" %>
+<% end %>
 
 <%= link_to "Brand products", brand_products_path(@brand) %>
 

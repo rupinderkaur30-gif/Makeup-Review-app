@@ -1,1 +1,9 @@
-<%= render "form" %>
+<%= form_for @brand do |f| %>
+    <%= render partial: "layouts/errors", locals: {record: @brand}  %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br>
+      <%= f.label :image %><br>
+      <%= f.text_field :image %><br>
+      <%= f.submit %>
+      
+      <% end %>
