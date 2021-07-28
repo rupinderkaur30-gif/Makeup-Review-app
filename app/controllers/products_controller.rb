@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
             render :new
         end
     end
-    end
 
     def show 
         @review = Review.new(user: current_user, product: @product)

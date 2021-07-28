@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
     before_action :set_review, only: [:edit, :update, :destroy]
     before_action :set_product, only: [:create]
+    before_action :require_login
 
     def create
         @review = current_user.reviews.build(review_params)

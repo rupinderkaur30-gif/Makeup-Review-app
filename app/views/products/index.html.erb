@@ -9,7 +9,7 @@
 <div class="cards">
 <% @products.each do |product| %>
     <%= image_tag product.image, width: "350" %><br>
-    <%= link_to "Product Name: #{product.name}", product_path(product.id) %><br>
+    <%= link_to "Product Name: #{product.name}", brand_product_path(product.brand.id,product.id) %><br>
     <%= "Price: #{number_to_currency(product.price)}" %><br><br>
  </div>
 
