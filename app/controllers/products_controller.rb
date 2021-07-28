@@ -18,10 +18,6 @@ class ProductsController < ApplicationController
     end
 
     def create
-        if params(:brand_id)
-            brand = Brand.find(params[:brand_id])
-            @products = brand.Product.new(product_params)
-        else
         @product = Product.new(product_params)
         if @product.save
          redirect_to @product
@@ -33,6 +29,7 @@ class ProductsController < ApplicationController
 
     def show 
         @review = Review.new(user: current_user, product: @product)
+
     end
 
     def edit
@@ -59,6 +56,11 @@ class ProductsController < ApplicationController
     end
 
     def set_product
-        @product = Product.find(params[:id])
+        if params[:brand_id]
+            @brand = Brand.find(params[:brand_id])
+            @product = @brand.products.find(params[:id])
+        else
+            @product = Product.find(params[:id])
+        end
     end
 end
