@@ -1,0 +1,7 @@
+<p> Review: <%= review.content %></p>
+<p> Name: <%= review.user.name %></p>
+ <p><%= pretty_time(review.created_at) %></p>
+ <% if review.user == current_user %>
+   <%= button_to "Edit Review", edit_review_path(review), method: :get %><br>
+<%= button_to "Delete Review", review, method: :delete %>
+ <% end %>

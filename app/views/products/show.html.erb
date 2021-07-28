@@ -10,16 +10,13 @@
 <%= @product.description %><br>
 <h3> Category </h3>
 <%= @product.category %><br>
-<button <%= button_to "Edit #{@product.name}", edit_product_path(@product), method: :get %></button><br>
-<button <%= button_to "delete #{@product.name}", @product, method: :delete %></button>
-<% @product.reviews.each do |review| %>
-   <p> Review: <%= review.content %></p>
-   <p> Name: <%= review.user.name %></p>
-    <p><%= pretty_time(review.created_at) %></p>
-    <% if review.user == current_user %>
-      <button <%= button_to "Edit Review", edit_review_path(review), method: :get %></button><br>
-      <button <%= button_to "Delete Review", review, method: :delete %></button>
-    <% end %>
-<% end %>
-<%= render "reviews/form" %>
-  
+<%= button_to "Edit #{@product.name}", edit_product_path(@product), method: :get %><br>
+<%= button_to "delete #{@product.name}", @product, method: :delete %>
+ 
+<%= form_for [@product, @review] do |f| %>
+   <%= render partial: "layouts/errors", locals: {record: @review}  %>
+   <%= f.label :content %>
+   <%= f.text_area :content, cols: 30, rows: 10 %>
+   <%= f.submit  %>
+   <% end %>
+   <%= render @product.reviews %>

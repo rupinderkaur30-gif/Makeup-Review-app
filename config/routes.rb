@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :brands do
     resources :products, only: [:index]
   end
+  resources :products do
+    resources :reviews, only: [:create, :update]
+  end
+
   resources :products
   resources :reviews
   get "/login", to: "sessions#login", as: "login"

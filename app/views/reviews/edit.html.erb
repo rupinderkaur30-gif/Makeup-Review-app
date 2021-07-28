@@ -1,2 +1,8 @@
 <h1> Edit Review </h1>
-<%= render "form" %>
+<%= form_for [@product, @review] do |f| %>
+   
+    <%= render partial: "layouts/errors", locals: {record: @review}  %>
+    <%= f.label :content %>
+    <%= f.text_area :content, cols: 30, rows: 10 %>
+    <%= f.submit  %>
+    <% end %>

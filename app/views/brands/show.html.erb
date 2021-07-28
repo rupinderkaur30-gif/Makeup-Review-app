@@ -2,9 +2,9 @@
 <% if @brand.image %>
 <h1> Image: </h1>
 <%= image_tag @brand.image, width: "550" %>
-<% end %>
+<% end %><br>
 
-<%= link_to "Brand products", brand_products_path(@brand) %><br><br>
+<%= link_to "Brand products", brand_products_path(@brand) %><br><br> 
 
-<button <%= button_to "Edit #{@brand.name}", edit_brand_path(@brand), method: :get %></button><br>
-<button <%= button_to "delete #{@brand.name}", @brand, method: :delete %></button>
+ <%= button_to "Edit #{@brand.name}", edit_brand_path(@brand), method: :get %><br>
+ <%= button_to "delete #{@brand.name}", @brand, method: :delete %>

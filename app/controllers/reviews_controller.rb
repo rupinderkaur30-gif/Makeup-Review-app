@@ -1,15 +1,16 @@
 class ReviewsController < ApplicationController
     before_action :set_review, only: [:edit, :update, :destroy]
+    before_action :set_product, only: [:create]
 
     def create
-        @review = Review.new(review_params)
-        @review.user = current_user
+        @review = current_user.reviews.build(review_params)
+        @review.product = @product
         if @review.save
-            redirect_to @review.product
-        else
-            @product = @review.product
-            render "products/show"
+          redirect_to @product
+         else
+        render :"products/show"
         end
+      
     end
 
         def edit
@@ -30,13 +31,18 @@ class ReviewsController < ApplicationController
    
 
     private
+    
 
+    def set_product
+        @product = Product.find(params[:product_id]) if params[:product_id]
+      end
+    
 
     def set_review
         @review = Review.find(params[:id])
     end
 
     def review_params
-        params.require(:review).permit(:content, :product_id)
+        params.require(:review).permit(:content)
     end
 end

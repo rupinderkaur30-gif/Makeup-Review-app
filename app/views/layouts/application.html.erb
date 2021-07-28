@@ -9,7 +9,12 @@
   </head>
 
   <body>
+  <header> 
+  <div class="container">
+  <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr6RGsrq68OiXsz8BNMzP8sL2hshNP4CZCTOyG3ZEUgM61qyx7LBFn_L2e3LQf87MYu8VH8ULMm5UD_g&usqp=CAU", class: "makeup_logo" %>
   <%= render "layouts/nav" %>
+  </div>
+  </header>
   <%= render "layouts/flash" %>
     <%= yield %>
   </body>
