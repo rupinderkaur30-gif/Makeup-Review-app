@@ -11,6 +11,7 @@
     <%= image_tag product.image, width: "350" %><br>
     <%= link_to "Product Name: #{product.name}", brand_product_path(product.brand.id,product.id) %><br>
     <%= "Price: #{number_to_currency(product.price)}" %><br><br>
+    <%= link_to "Create new review" , new_product_review_path(product.id) %>
  </div>
 
 <% end %>

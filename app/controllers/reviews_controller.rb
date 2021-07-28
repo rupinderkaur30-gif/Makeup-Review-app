@@ -2,6 +2,12 @@ class ReviewsController < ApplicationController
     before_action :set_review, only: [:edit, :update, :destroy]
     before_action :set_product, only: [:create]
     before_action :require_login
+    
+    def new
+        @product = Product.find(params[:product_id])
+        @review = @product.reviews.new
+    end
+
 
     def create
         @review = current_user.reviews.build(review_params)
@@ -40,7 +46,7 @@ class ReviewsController < ApplicationController
     
 
     def set_review
-        @review = Review.find(params[:id])
+        @review = current_user.reviews.find(params[:id])
     end
 
     def review_params
